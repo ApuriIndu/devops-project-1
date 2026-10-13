@@ -27,5 +27,10 @@ pipeline {
                 bat '"C:\\Users\\INDU\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest app\\test_app.py'
             }
         }
+	stage('Docker Build') {
+    	   steps {
+               bat '"C:\\Users\\INDU\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t my-python-app app'
+           }
+}
     }
 }
