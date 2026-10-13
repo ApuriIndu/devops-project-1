@@ -15,5 +15,17 @@ pipeline {
                 bat '"C:\\Users\\INDU\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                bat '"C:\\Users\\INDU\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install -r app\\requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat '"C:\\Users\\INDU\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest app\\test_app.py'
+            }
+        }
     }
 }
